@@ -1,0 +1,1240 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/hardmath123/nearley#readme"
+
+    >nearley (v2.8.0)</a>
+</h1>
+<h4>Simple, fast, powerful parser toolkit for JavaScript.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley">module nearley</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Grammar">
+            function <span class="apidocSignatureSpan">nearley.</span>Grammar
+            <span class="apidocSignatureSpan">(rules, start)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Parser">
+            function <span class="apidocSignatureSpan">nearley.</span>Parser
+            <span class="apidocSignatureSpan">(rules, start, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Rule">
+            function <span class="apidocSignatureSpan">nearley.</span>Rule
+            <span class="apidocSignatureSpan">(name, symbols, postprocess)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate">
+            function <span class="apidocSignatureSpan">nearley.</span>generate
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.stream">
+            function <span class="apidocSignatureSpan">nearley.</span>stream
+            <span class="apidocSignatureSpan">(parser)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nearley.</span>Parser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nearley.</span>Rule.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nearley.</span>stream.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.Grammar">module nearley.Grammar</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Grammar.Grammar">
+            function <span class="apidocSignatureSpan">nearley.</span>Grammar
+            <span class="apidocSignatureSpan">(rules, start)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Grammar.fromCompiled">
+            function <span class="apidocSignatureSpan">nearley.Grammar.</span>fromCompiled
+            <span class="apidocSignatureSpan">(rules, start)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.Parser">module nearley.Parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Parser.Parser">
+            function <span class="apidocSignatureSpan">nearley.</span>Parser
+            <span class="apidocSignatureSpan">(rules, start, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">nearley.Parser.</span>fail</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.Parser.prototype">module nearley.Parser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Parser.prototype.feed">
+            function <span class="apidocSignatureSpan">nearley.Parser.prototype.</span>feed
+            <span class="apidocSignatureSpan">(chunk)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Parser.prototype.finish">
+            function <span class="apidocSignatureSpan">nearley.Parser.prototype.</span>finish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Parser.prototype.rewind">
+            function <span class="apidocSignatureSpan">nearley.Parser.prototype.</span>rewind
+            <span class="apidocSignatureSpan">(index)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.Rule">module nearley.Rule</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Rule.Rule">
+            function <span class="apidocSignatureSpan">nearley.</span>Rule
+            <span class="apidocSignatureSpan">(name, symbols, postprocess)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">nearley.Rule.</span>highestId</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.Rule.prototype">module nearley.Rule.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.Rule.prototype.toString">
+            function <span class="apidocSignatureSpan">nearley.Rule.prototype.</span>toString
+            <span class="apidocSignatureSpan">(withCursorAt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.generate">module nearley.generate</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.generate">
+            function <span class="apidocSignatureSpan">nearley.</span>generate
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate._default">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>_default
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.coffee">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>coffee
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.coffeescript">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>coffeescript
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.cs">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>cs
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.javascript">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>javascript
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.js">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>js
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.ts">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>ts
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.generate.typescript">
+            function <span class="apidocSignatureSpan">nearley.generate.</span>typescript
+            <span class="apidocSignatureSpan">(parser, exportName)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.stream">module nearley.stream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.stream.stream">
+            function <span class="apidocSignatureSpan">nearley.</span>stream
+            <span class="apidocSignatureSpan">(parser)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.stream.super_">
+            function <span class="apidocSignatureSpan">nearley.stream.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.nearley.stream.prototype">module nearley.stream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nearley.stream.prototype._write">
+            function <span class="apidocSignatureSpan">nearley.stream.prototype.</span>_write
+            <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley" id="apidoc.module.nearley">module nearley</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Grammar" id="apidoc.element.nearley.Grammar">
+        function <span class="apidocSignatureSpan">nearley.</span>Grammar
+        <span class="apidocSignatureSpan">(rules, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Grammar(rules, start) {
+    this.rules = rules;
+    this.start = start || this.rules[0].name;
+    var byName = this.byName = {};
+    this.rules.forEach(function(rule) {
+        if (!byName.hasOwnProperty(rule.name)) {
+            byName[rule.name] = [];
+        }
+        byName[rule.name].push(rule);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Parser" id="apidoc.element.nearley.Parser">
+        function <span class="apidocSignatureSpan">nearley.</span>Parser
+        <span class="apidocSignatureSpan">(rules, start, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(rules, start, options) {
+    if (rules instanceof Grammar) {
+        var grammar = rules;
+        var options = start;
+    } else {
+        var grammar = Grammar.fromCompiled(rules, start);
+    }
+    this.grammar = grammar;
+
+    // Read options
+    this.options = {
+        keepHistory: false,
+        // rewindable: false,
+    };
+    for (var key in (options || {})) {
+        this.options[key] = options[key];
+    }
+    // if (this.options.rewindable) { this.options.keepHistory = true; }
+
+    // Setup a table
+    var column = new Column(grammar, 0);
+    var table = this.table = [column];
+
+    // I could be expecting anything.
+    column.wants[grammar.start] = [];
+    column.predict(grammar.start);
+    // TODO what if start rule is nullable?
+    column.process();
+    this.current = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+nearley exposes the following API:
+
+    var grammar = require(&#x22;generated-code.js&#x22;);
+    var nearley = require(&#x22;nearley&#x22;);
+
+    // Create a Parser object from our grammar.
+    var p = new nearley.<span class="apidocCodeKeywordSpan">Parser</span>(grammar.ParserRules, grammar.ParserStart);
+
+    // Parse something
+    p.feed(&#x22;1+1&#x22;);
+    // p.results --&#x3e; [ [&#x22;sum&#x22;, &#x22;1&#x22;, &#x22;1&#x22;] ]
+
+The `Parser` object can be fed data in parts with `.feed(data)`. You can then
+find an array of parsings with the `.results` property. If `results` is empty,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Rule" id="apidoc.element.nearley.Rule">
+        function <span class="apidocSignatureSpan">nearley.</span>Rule
+        <span class="apidocSignatureSpan">(name, symbols, postprocess)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Rule(name, symbols, postprocess) {
+    this.id = ++Rule.highestId;
+    this.name = name;
+    this.symbols = symbols;        // a list of literal | regex class | nonterminal
+    this.postprocess = postprocess;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var tokens = [];
+    for (var i = 0; i &#x3c; rule.tokens.length; i++) {
+        var token = buildToken(ruleName, rule.tokens[i], env);
+        if (token !== null) {
+            tokens.push(token);
+        }
+    }
+    return new nearley.<span class="apidocCodeKeywordSpan">Rule</span>(
+        ruleName,
+        tokens,
+        rule.postprocess
+    );
+}
+
+function buildToken(ruleName, token, env) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate" id="apidoc.element.nearley.generate">
+        function <span class="apidocSignatureSpan">nearley.</span>generate
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">generate = function (parser, exportName) {
+    if(!parser.config.preprocessor) {
+        parser.config.preprocessor = &#x22;_default&#x22;;
+    }
+
+    if(!generate[parser.config.preprocessor]) {
+        throw new Error(&#x22;No such preprocessor: &#x22; + parser.config.preprocessor)
+    }
+
+    return generate[parser.config.preprocessor](parser, exportName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.stream" id="apidoc.element.nearley.stream">
+        function <span class="apidocSignatureSpan">nearley.</span>stream
+        <span class="apidocSignatureSpan">(parser)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamWrapper(parser) {
+    Writable.call(this);
+    this._parser = parser;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.Grammar" id="apidoc.module.nearley.Grammar">module nearley.Grammar</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Grammar.Grammar" id="apidoc.element.nearley.Grammar.Grammar">
+        function <span class="apidocSignatureSpan">nearley.</span>Grammar
+        <span class="apidocSignatureSpan">(rules, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Grammar(rules, start) {
+    this.rules = rules;
+    this.start = start || this.rules[0].name;
+    var byName = this.byName = {};
+    this.rules.forEach(function(rule) {
+        if (!byName.hasOwnProperty(rule.name)) {
+            byName[rule.name] = [];
+        }
+        byName[rule.name].push(rule);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Grammar.fromCompiled" id="apidoc.element.nearley.Grammar.fromCompiled">
+        function <span class="apidocSignatureSpan">nearley.Grammar.</span>fromCompiled
+        <span class="apidocSignatureSpan">(rules, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromCompiled = function (rules, start) {
+    if (rules.ParserStart) {
+      start = rules.ParserStart;
+      rules = rules.ParserRules;
+    }
+    var rules = rules.map(function (r) { return (new Rule(r.name, r.symbols, r.postprocess)); });
+    return new Grammar(rules, start);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.Parser" id="apidoc.module.nearley.Parser">module nearley.Parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Parser.Parser" id="apidoc.element.nearley.Parser.Parser">
+        function <span class="apidocSignatureSpan">nearley.</span>Parser
+        <span class="apidocSignatureSpan">(rules, start, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(rules, start, options) {
+    if (rules instanceof Grammar) {
+        var grammar = rules;
+        var options = start;
+    } else {
+        var grammar = Grammar.fromCompiled(rules, start);
+    }
+    this.grammar = grammar;
+
+    // Read options
+    this.options = {
+        keepHistory: false,
+        // rewindable: false,
+    };
+    for (var key in (options || {})) {
+        this.options[key] = options[key];
+    }
+    // if (this.options.rewindable) { this.options.keepHistory = true; }
+
+    // Setup a table
+    var column = new Column(grammar, 0);
+    var table = this.table = [column];
+
+    // I could be expecting anything.
+    column.wants[grammar.start] = [];
+    column.predict(grammar.start);
+    // TODO what if start rule is nullable?
+    column.process();
+    this.current = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+nearley exposes the following API:
+
+    var grammar = require(&#x22;generated-code.js&#x22;);
+    var nearley = require(&#x22;nearley&#x22;);
+
+    // Create a Parser object from our grammar.
+    var p = new nearley.<span class="apidocCodeKeywordSpan">Parser</span>(grammar.ParserRules, grammar.ParserStart);
+
+    // Parse something
+    p.feed(&#x22;1+1&#x22;);
+    // p.results --&#x3e; [ [&#x22;sum&#x22;, &#x22;1&#x22;, &#x22;1&#x22;] ]
+
+The `Parser` object can be fed data in parts with `.feed(data)`. You can then
+find an array of parsings with the `.results` property. If `results` is empty,
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.Parser.prototype" id="apidoc.module.nearley.Parser.prototype">module nearley.Parser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Parser.prototype.feed" id="apidoc.element.nearley.Parser.prototype.feed">
+        function <span class="apidocSignatureSpan">nearley.Parser.prototype.</span>feed
+        <span class="apidocSignatureSpan">(chunk)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">feed = function (chunk) {
+    for (var chunkPos = 0; chunkPos &#x3c; chunk.length; chunkPos++) {
+        // We add new states to table[current+1]
+        var column = this.table[this.current + chunkPos];
+
+        // GC unused states
+        if (!this.options.keepHistory) {
+            delete this.table[this.current + chunkPos - 1];
+        }
+
+        var n = this.current + chunkPos + 1;
+        var nextColumn = new Column(this.grammar, n);
+        this.table.push(nextColumn);
+
+        // Advance all tokens that expect the symbol
+        // So for each state in the previous row,
+
+        var token = chunk[chunkPos];
+        var scannable = column.scannable;
+        for (var w = scannable.length; w--; ) {
+            var state = scannable[w];
+            var expect = state.rule.symbols[state.dot];
+            // Try to consume the token
+            // either regex or literal
+            if (expect.test ? expect.test(token) : expect.literal === token) {
+                // Add it
+                var next = state.nextState(token);
+                nextColumn.states.push(next);
+            }
+        }
+
+        // Next, for each of the rules, we either
+        // (a) complete it, and try to see if the reference row expected that
+        //     rule
+        // (b) predict the next nonterminal it expects by adding that
+        //     nonterminal&#x27;s start state
+        // To prevent duplication, we also keep track of rules we have already
+        // added
+
+        nextColumn.process();
+
+        // If needed, throw an error:
+        if (nextColumn.states.length === 0) {
+            // No states at all! This is not good.
+            var err = new Error(
+                &#x22;nearley: No possible parsings (@&#x22; + (this.current + chunkPos)
+                    + &#x22;: &#x27;&#x22; + chunk[chunkPos] + &#x22;&#x27;).&#x22;
+            );
+            err.offset = this.current + chunkPos;
+            throw err;
+        }
+    }
+
+    this.current += chunkPos;
+
+    // Incrementally keep track of results
+    this.results = this.finish();
+
+    // Allow chaining, for whatever it&#x27;s worth
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var grammar = require(&#x22;generated-code.js&#x22;);
+    var nearley = require(&#x22;nearley&#x22;);
+
+    // Create a Parser object from our grammar.
+    var p = new nearley.Parser(grammar.ParserRules, grammar.ParserStart);
+
+    // Parse something
+    p.<span class="apidocCodeKeywordSpan">feed</span>(&#x22;1+1&#x22;);
+    // p.results --&#x3e; [ [&#x22;sum&#x22;, &#x22;1&#x22;, &#x22;1&#x22;] ]
+
+The `Parser` object can be fed data in parts with `.feed(data)`. You can then
+find an array of parsings with the `.results` property. If `results` is empty,
+then there are no parsings. If `results` contains multiple values, then that
+combination is ambiguous.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Parser.prototype.finish" id="apidoc.element.nearley.Parser.prototype.finish">
+        function <span class="apidocSignatureSpan">nearley.Parser.prototype.</span>finish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">finish = function () {
+    // Return the possible parsings
+    var considerations = [];
+    var start = this.grammar.start;
+    var column = this.table[this.table.length - 1]
+    column.states.forEach(function (t) {
+        if (t.rule.name === start
+                &#x26;&#x26; t.dot === t.rule.symbols.length
+                &#x26;&#x26; t.reference === 0
+                &#x26;&#x26; t.data !== Parser.fail) {
+            considerations.push(t);
+        }
+    });
+    return considerations.map(function(c) {return c.data; });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Parser.prototype.rewind" id="apidoc.element.nearley.Parser.prototype.rewind">
+        function <span class="apidocSignatureSpan">nearley.Parser.prototype.</span>rewind
+        <span class="apidocSignatureSpan">(index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rewind = function (index) {
+    if (!this.options.keepHistory) {
+        throw new Error(&#x27;set option `keepHistory` to enable rewinding&#x27;)
+    }
+    if (this.current &#x3c; this.index) {
+        // TODO: api -- consider silently succeeding?
+        throw new Error(&#x27;cannot rewind forward!&#x27;)
+    }
+<span class="apidocCodeCommentSpan">    /*
+     * recall column (table) indicies fall between token indicies.
+     *
+     *    col 0   --   token 0   --   col 1
+     */
+</span>    this.table.splice(index + 1);
+    this.current = index;
+
+    // Incrementally keep track of results
+    this.results = this.finish();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.Rule" id="apidoc.module.nearley.Rule">module nearley.Rule</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Rule.Rule" id="apidoc.element.nearley.Rule.Rule">
+        function <span class="apidocSignatureSpan">nearley.</span>Rule
+        <span class="apidocSignatureSpan">(name, symbols, postprocess)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Rule(name, symbols, postprocess) {
+    this.id = ++Rule.highestId;
+    this.name = name;
+    this.symbols = symbols;        // a list of literal | regex class | nonterminal
+    this.postprocess = postprocess;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var tokens = [];
+    for (var i = 0; i &#x3c; rule.tokens.length; i++) {
+        var token = buildToken(ruleName, rule.tokens[i], env);
+        if (token !== null) {
+            tokens.push(token);
+        }
+    }
+    return new nearley.<span class="apidocCodeKeywordSpan">Rule</span>(
+        ruleName,
+        tokens,
+        rule.postprocess
+    );
+}
+
+function buildToken(ruleName, token, env) {
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.Rule.prototype" id="apidoc.module.nearley.Rule.prototype">module nearley.Rule.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.Rule.prototype.toString" id="apidoc.element.nearley.Rule.prototype.toString">
+        function <span class="apidocSignatureSpan">nearley.Rule.prototype.</span>toString
+        <span class="apidocSignatureSpan">(withCursorAt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function (withCursorAt) {
+    function stringifySymbolSequence (e) {
+        return (e.literal) ? JSON.stringify(e.literal)
+                           : e.toString();
+    }
+    var symbolSequence = (typeof withCursorAt === &#x22;undefined&#x22;)
+                         ? this.symbols.map(stringifySymbolSequence).join(&#x27; &#x27;)
+                         : (   this.symbols.slice(0, withCursorAt).map(stringifySymbolSequence).join(&#x27; &#x27;)
+                             + &#x22; ● &#x22;
+                             + this.symbols.slice(withCursorAt).map(stringifySymbolSequence).join(&#x27; &#x27;)     );
+    return this.name + &#x22; → &#x22; + symbolSequence;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    )
+);
+
+var diagrams = Object.keys(rules).map(function(r) {
+    return [
+      &#x27;&#x3c;h1&#x3e;&#x3c;code&#x3e;&#x27; + r + &#x27;&#x3c;/code&#x3e;&#x3c;/h1&#x3e;&#x27;,
+      &#x27;&#x3c;div&#x3e;&#x27;,
+        diagram(r).<span class="apidocCodeKeywordSpan">toString</span>(),
+      &#x27;&#x3c;/div&#x3e;&#x27;
+    ].join(&#x27;\n&#x27;);
+});
+
+function diagram(name) {
+    var selectedrules = rules[name];
+    var outer = {subexpression: selectedrules};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.generate" id="apidoc.module.nearley.generate">module nearley.generate</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.generate" id="apidoc.element.nearley.generate.generate">
+        function <span class="apidocSignatureSpan">nearley.</span>generate
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">generate = function (parser, exportName) {
+    if(!parser.config.preprocessor) {
+        parser.config.preprocessor = &#x22;_default&#x22;;
+    }
+
+    if(!generate[parser.config.preprocessor]) {
+        throw new Error(&#x22;No such preprocessor: &#x22; + parser.config.preprocessor)
+    }
+
+    return generate[parser.config.preprocessor](parser, exportName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate._default" id="apidoc.element.nearley.generate._default">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>_default
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_default = function (parser, exportName) {
+    var output = &#x22;// Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;// http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;(function () {\n&#x22;;
+    output += &#x22;function id(x) {return x[0]; }\n&#x22;;
+    output += parser.body.join(&#x27;\n&#x27;);
+    output += &#x22;var grammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; +
+        serializeRules(parser.rules, generate.javascript.builtinPostprocessors)
+        + &#x22;\n&#x22;;
+    output += &#x22;  , ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    output += &#x22;if (typeof module !== &#x27;undefined&#x27;&#x22;
+        + &#x22;&#x26;&#x26; typeof module.exports !== &#x27;undefined&#x27;) {\n&#x22;;
+    output += &#x22;   module.exports = grammar;\n&#x22;;
+    output += &#x22;} else {\n&#x22;;
+    output += &#x22;   window.&#x22; + exportName + &#x22; = grammar;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    output += &#x22;})();\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.coffee" id="apidoc.element.nearley.generate.coffee">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>coffee
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">coffee = function (parser, exportName) {
+    var output = &#x22;# Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;# http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;do -&#x3e;\n&#x22;;
+    output += &#x22;  id = (d)-&#x3e;d[0]\n&#x22;;
+    output += tabulateString(dedentFunc(parser.body.join(&#x27;\n&#x27;)), &#x27;  &#x27;) + &#x27;\n&#x27;;
+    output += &#x22;  grammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; +
+        tabulateString(
+                serializeRules(parser.rules, generate.coffeescript.builtinPostprocessors),
+                &#x27;      &#x27;,
+                {indentFirst: false})
+    + &#x22;,\n&#x22;;
+    output += &#x22;    ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;  }\n&#x22;;
+    output += &#x22;  if typeof module != &#x27;undefined&#x27; &#x22;
+        + &#x22;&#x26;&#x26; typeof module.exports != &#x27;undefined&#x27;\n&#x22;;
+    output += &#x22;    module.exports = grammar;\n&#x22;;
+    output += &#x22;  else\n&#x22;;
+    output += &#x22;    window.&#x22; + exportName + &#x22; = grammar;\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.coffeescript" id="apidoc.element.nearley.generate.coffeescript">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>coffeescript
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">coffeescript = function (parser, exportName) {
+    var output = &#x22;# Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;# http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;do -&#x3e;\n&#x22;;
+    output += &#x22;  id = (d)-&#x3e;d[0]\n&#x22;;
+    output += tabulateString(dedentFunc(parser.body.join(&#x27;\n&#x27;)), &#x27;  &#x27;) + &#x27;\n&#x27;;
+    output += &#x22;  grammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; +
+        tabulateString(
+                serializeRules(parser.rules, generate.coffeescript.builtinPostprocessors),
+                &#x27;      &#x27;,
+                {indentFirst: false})
+    + &#x22;,\n&#x22;;
+    output += &#x22;    ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;  }\n&#x22;;
+    output += &#x22;  if typeof module != &#x27;undefined&#x27; &#x22;
+        + &#x22;&#x26;&#x26; typeof module.exports != &#x27;undefined&#x27;\n&#x22;;
+    output += &#x22;    module.exports = grammar;\n&#x22;;
+    output += &#x22;  else\n&#x22;;
+    output += &#x22;    window.&#x22; + exportName + &#x22; = grammar;\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.cs" id="apidoc.element.nearley.generate.cs">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>cs
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cs = function (parser, exportName) {
+    var output = &#x22;# Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;# http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;do -&#x3e;\n&#x22;;
+    output += &#x22;  id = (d)-&#x3e;d[0]\n&#x22;;
+    output += tabulateString(dedentFunc(parser.body.join(&#x27;\n&#x27;)), &#x27;  &#x27;) + &#x27;\n&#x27;;
+    output += &#x22;  grammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; +
+        tabulateString(
+                serializeRules(parser.rules, generate.coffeescript.builtinPostprocessors),
+                &#x27;      &#x27;,
+                {indentFirst: false})
+    + &#x22;,\n&#x22;;
+    output += &#x22;    ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;  }\n&#x22;;
+    output += &#x22;  if typeof module != &#x27;undefined&#x27; &#x22;
+        + &#x22;&#x26;&#x26; typeof module.exports != &#x27;undefined&#x27;\n&#x22;;
+    output += &#x22;    module.exports = grammar;\n&#x22;;
+    output += &#x22;  else\n&#x22;;
+    output += &#x22;    window.&#x22; + exportName + &#x22; = grammar;\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.javascript" id="apidoc.element.nearley.generate.javascript">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>javascript
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">javascript = function (parser, exportName) {
+    var output = &#x22;// Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;// http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;(function () {\n&#x22;;
+    output += &#x22;function id(x) {return x[0]; }\n&#x22;;
+    output += parser.body.join(&#x27;\n&#x27;);
+    output += &#x22;var grammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; +
+        serializeRules(parser.rules, generate.javascript.builtinPostprocessors)
+        + &#x22;\n&#x22;;
+    output += &#x22;  , ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    output += &#x22;if (typeof module !== &#x27;undefined&#x27;&#x22;
+        + &#x22;&#x26;&#x26; typeof module.exports !== &#x27;undefined&#x27;) {\n&#x22;;
+    output += &#x22;   module.exports = grammar;\n&#x22;;
+    output += &#x22;} else {\n&#x22;;
+    output += &#x22;   window.&#x22; + exportName + &#x22; = grammar;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    output += &#x22;})();\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.js" id="apidoc.element.nearley.generate.js">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>js
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">js = function (parser, exportName) {
+    var output = &#x22;// Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;// http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;(function () {\n&#x22;;
+    output += &#x22;function id(x) {return x[0]; }\n&#x22;;
+    output += parser.body.join(&#x27;\n&#x27;);
+    output += &#x22;var grammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; +
+        serializeRules(parser.rules, generate.javascript.builtinPostprocessors)
+        + &#x22;\n&#x22;;
+    output += &#x22;  , ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    output += &#x22;if (typeof module !== &#x27;undefined&#x27;&#x22;
+        + &#x22;&#x26;&#x26; typeof module.exports !== &#x27;undefined&#x27;) {\n&#x22;;
+    output += &#x22;   module.exports = grammar;\n&#x22;;
+    output += &#x22;} else {\n&#x22;;
+    output += &#x22;   window.&#x22; + exportName + &#x22; = grammar;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    output += &#x22;})();\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.ts" id="apidoc.element.nearley.generate.ts">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>ts
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ts = function (parser, exportName) {
+    var output = &#x22;// Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;// http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;function id(d:any[]):any {return d[0];}\n&#x22;;
+    output += parser.body.join(&#x27;\n&#x27;);
+    output += &#x22;interface NearleyGrammar {ParserRules:NearleyRule[]; ParserStart:string};\n&#x22;;
+    output += &#x22;interface NearleyRule {name:string; symbols:NearleySymbol[]; postprocess?:(d:any[],loc?:number,reject?:{})=&#x3e;any};\n&#x22;;
+    output += &#x22;type NearleySymbol = string | {literal:any} | {test:(token:any) =&#x3e; boolean};\n&#x22;;
+    output += &#x22;export var grammar : NearleyGrammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; + serializeRules(parser.rules, generate.typescript.builtinPostprocessors) + &#x22;\n&#x22;;
+    output += &#x22;  , ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.generate.typescript" id="apidoc.element.nearley.generate.typescript">
+        function <span class="apidocSignatureSpan">nearley.generate.</span>typescript
+        <span class="apidocSignatureSpan">(parser, exportName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">typescript = function (parser, exportName) {
+    var output = &#x22;// Generated automatically by nearley\n&#x22;;
+    output +=  &#x22;// http://github.com/Hardmath123/nearley\n&#x22;;
+    output += &#x22;function id(d:any[]):any {return d[0];}\n&#x22;;
+    output += parser.body.join(&#x27;\n&#x27;);
+    output += &#x22;interface NearleyGrammar {ParserRules:NearleyRule[]; ParserStart:string};\n&#x22;;
+    output += &#x22;interface NearleyRule {name:string; symbols:NearleySymbol[]; postprocess?:(d:any[],loc?:number,reject?:{})=&#x3e;any};\n&#x22;;
+    output += &#x22;type NearleySymbol = string | {literal:any} | {test:(token:any) =&#x3e; boolean};\n&#x22;;
+    output += &#x22;export var grammar : NearleyGrammar = {\n&#x22;;
+    output += &#x22;    ParserRules: &#x22; + serializeRules(parser.rules, generate.typescript.builtinPostprocessors) + &#x22;\n&#x22;;
+    output += &#x22;  , ParserStart: &#x22; + JSON.stringify(parser.start) + &#x22;\n&#x22;;
+    output += &#x22;}\n&#x22;;
+    return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.stream" id="apidoc.module.nearley.stream">module nearley.stream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.stream.stream" id="apidoc.element.nearley.stream.stream">
+        function <span class="apidocSignatureSpan">nearley.</span>stream
+        <span class="apidocSignatureSpan">(parser)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function StreamWrapper(parser) {
+    Writable.call(this);
+    this._parser = parser;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.stream.super_" id="apidoc.element.nearley.stream.super_">
+        function <span class="apidocSignatureSpan">nearley.stream.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Writable(options) {
+  // Writable ctor is applied to Duplexes, too.
+  // `realHasInstance` is necessary because using plain `instanceof`
+  // would return false, as no `_writableState` property is attached.
+
+  // Trying to use the custom `instanceof` for Writable here will also break the
+  // Node.js LazyTransform implementation, which has a non-trivial getter for
+  // `_writableState` that would lead to infinite recursion.
+  if (!(realHasInstance.call(Writable, this)) &#x26;&#x26;
+      !(this instanceof Stream.Duplex)) {
+    return new Writable(options);
+  }
+
+  this._writableState = new WritableState(options, this);
+
+  // legacy.
+  this.writable = true;
+
+  if (options) {
+    if (typeof options.write === &#x27;function&#x27;)
+      this._write = options.write;
+
+    if (typeof options.writev === &#x27;function&#x27;)
+      this._writev = options.writev;
+  }
+
+  Stream.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.nearley.stream.prototype" id="apidoc.module.nearley.stream.prototype">module nearley.stream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nearley.stream.prototype._write" id="apidoc.element.nearley.stream.prototype._write">
+        function <span class="apidocSignatureSpan">nearley.stream.prototype.</span>_write
+        <span class="apidocSignatureSpan">(chunk, encoding, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function write(chunk, encoding, callback) {
+    this._parser.feed(chunk.toString());
+    callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
